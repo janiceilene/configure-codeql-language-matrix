@@ -20,16 +20,16 @@ Let's try this out with our existing CodeQL workflow file.
 1. Ensure that your indentation is correct after adding the step.
 1. Now we need to make sure that the autobuild step only runs when it is needed. Add to the `Autobuild` step a conditional expression that checks to make sure the language is `java-kotlin`.
 
-<details>
-  <summary>Autobuild step after adding conditional</summary>
+    <details>
+      <summary>Autobuild step after adding conditional</summary>
 
-```yaml
-    - if: ${{ contains(matrix.language, 'java-kotlin') }}
-      name: Autobuild
-      uses: github/codeql-action/autobuild@v3
-```
+    ```yaml
+        - if: ${{ contains(matrix.language, 'java-kotlin') }}
+          name: Autobuild
+          uses: github/codeql-action/autobuild@v3
+    ```
 
-</details>
+    </details>
     
 1. Commit the changes directly to the `main` branch.
 1. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
